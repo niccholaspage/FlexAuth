@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 import org.apache.http.client.ClientProtocolException;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -41,59 +42,60 @@ public class AddToken extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.new_account);
 		context = this;
-		
+
 		findViewById(R.id.tokenForm).setVisibility(View.GONE);
 		findViewById(R.id.tokenTypeSelect).setVisibility(View.VISIBLE);
 
 		AppDb dbHelper = new AppDb(context);
-        db = dbHelper.write_db();
-		
-	    region = (Spinner) findViewById(R.id.regionSelect);
-	    regionLabel = (TextView) findViewById(R.id.regionLabel);
-	    generate = (Button) findViewById(R.id.requestToken);
-	    ArrayAdapter adapter = ArrayAdapter.createFromResource(context,
-	    		R.array.regions, android.R.layout.simple_spinner_item);
-	    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-	    region.setAdapter(adapter);
-		
+		db = dbHelper.write_db();
+
+		region = (Spinner) findViewById(R.id.regionSelect);
+		regionLabel = (TextView) findViewById(R.id.regionLabel);
+		generate = (Button) findViewById(R.id.requestToken);
+		ArrayAdapter<?> adapter = ArrayAdapter.createFromResource(context,
+				R.array.regions, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		region.setAdapter(adapter);
+
 		accountName = (EditText)findViewById(R.id.accountName);
 		serial = (EditText)findViewById(R.id.tokenSerial);
 		secret = (EditText)findViewById(R.id.tokenSecret);
 
 		accountName.setText("");
-		
+
 		cancel = new DialogInterface.OnClickListener() {
-           public void onClick(DialogInterface dialog, int id) {
-                dialog.cancel();
-           }
+			public void onClick(DialogInterface dialog, int id) {
+				dialog.cancel();
+			}
 		};
 	}
 
 
+	@SuppressLint("HandlerLeak")
 	private Handler messageHandler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
-				case(RECEIVED_TOKEN): {
-					Token t = (Token)msg.obj;
-					showEntryForm(t.secret, t.serial);
-					break;
-				}
-				case(ALERT_MSG): {
-					String errorMsg = (String)msg.obj;
-					new AlertDialog.Builder(context)
-					.setMessage(errorMsg)
-					.setTitle("Error")
-					.setNeutralButton("OK", cancel)
-					.setIcon(android.R.drawable.stat_notify_error)
-					.show();
-					break;
-				}
+			case(RECEIVED_TOKEN): {
+				Token t = (Token)msg.obj;
+				showEntryForm(t.secret, t.serial);
+				break;
+			}
+			case(ALERT_MSG): {
+				String errorMsg = (String)msg.obj;
+				new AlertDialog.Builder(context)
+				.setMessage(errorMsg)
+				.setTitle("Error")
+				.setNeutralButton("OK", cancel)
+				.setIcon(android.R.drawable.stat_notify_error)
+				.show();
+				break;
+			}
 			}
 		}
 
 	};
-	
+
 	private void showEntryForm(String sSecret, String sSerial) {
 		findViewById(R.id.tokenForm).setVisibility(View.VISIBLE);
 		findViewById(R.id.tokenTypeSelect).setVisibility(View.GONE);
@@ -109,29 +111,29 @@ public class AddToken extends Activity {
 		regionLabel.setVisibility(View.GONE);
 		generate.setVisibility(View.GONE);		
 	}
-	  
+
 	public void requestNewToken(View target) {
 		final ProgressDialog progress = ProgressDialog.show(this, "", "Requesting token. Please wait...", true);
 		region.setVisibility(View.VISIBLE);
 		regionLabel.setVisibility(View.VISIBLE);
 		generate.setVisibility(View.VISIBLE);
-        new Thread() {
-        	public void run() {
-        		Token t = generate((String) region.getSelectedItem());
-           		progress.dismiss();
-           		Message msg = messageHandler.obtainMessage(RECEIVED_TOKEN, t);
-           		messageHandler.sendMessage(msg); 
-        	}
-        }.start();
+		new Thread() {
+			public void run() {
+				Token t = generate((String) region.getSelectedItem());
+				progress.dismiss();
+				Message msg = messageHandler.obtainMessage(RECEIVED_TOKEN, t);
+				messageHandler.sendMessage(msg); 
+			}
+		}.start();
 	}
-	
+
 	public void saveToken(View target) {
 		accountName = (EditText)findViewById(R.id.accountName);
-		
+
 		String n = accountName.getText().toString().trim();
 		String ss = serial.getText().toString().trim();
 		String sl = secret.getText().toString().trim();
-		
+
 		String error = null;
 		if(n.compareTo("") == 0) {
 			error = "Please enter a name for this token";
@@ -149,9 +151,9 @@ public class AddToken extends Activity {
 		if(error != null) return;
 		String[] args = {n, ss, sl};				
 		db.execSQL("INSERT INTO accounts (name, serial, secret) VALUES (?, ?, ?)", args);
-		
-		Toast.makeText(context, "Token successfully added!", 4).show();
-		
+
+		Toast.makeText(context, "Token successfully added!", Toast.LENGTH_SHORT).show();
+
 		setResult(Activity.RESULT_OK, new Intent());
 		finish();
 	}
@@ -176,8 +178,8 @@ public class AddToken extends Activity {
 			errMsg = "Failed to generate a valid serial. Please try again.";
 		}
 		if(errMsg != null) {
-	   		Message msg = messageHandler.obtainMessage(ALERT_MSG, errMsg);
-	   		messageHandler.sendMessage(msg);
+			Message msg = messageHandler.obtainMessage(ALERT_MSG, errMsg);
+			messageHandler.sendMessage(msg);
 		}
 		return t;
 	}

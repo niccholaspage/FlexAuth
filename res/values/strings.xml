@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="tokenSelectLabel">Select Token</string>
     <string name="tokenEntry">Token Entry</string>
     <string name="requestNewToken">Request New Token</string>
@@ -18,7 +19,7 @@
     <string name="tokenSerialLabel">Serial</string>
     <string name="accountNameText">Account Name</string>
     <string name="hello">Hello World, FlexAuth!</string>
-    <string name="app_name">FlexAuth</string>
+    <string name="app_name">HoloAuth</string>
     <string name="create_table">CREATE TABLE accounts (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, serial TEXT, secret TEXT);</string>
     <string name="drop_table">DROP TABLE IF EXISTS accounts</string>
     <string name="invalid_data">Please fill out all fields.</string>
@@ -30,4 +31,8 @@
     <string name="delete_confirm">Are you sure you want to delete this token?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="token_hint">Token Secret</string>
+    <string name="icon">Icon</string>
+    <string name="action_add_token">Add Token</string>
+
 </resources>

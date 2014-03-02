@@ -1,13 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:layout_width="fill_parent"
-	android:layout_height="fill_parent" android:background="@drawable/background" style="?android:attr/progressBarStyleHorizontal">
-	
-	<ProgressBar android:id="@+id/ProgressBar01" android:layout_width="fill_parent" android:progressDrawable="@android:drawable/progress_horizontal" android:indeterminate="false" android:max="30000" android:progress="15000" style="?android:attr/progressBarStyleHorizontal" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:layout_marginTop="15dp" android:layout_height="7dp"></ProgressBar><ListView android:layout_width="fill_parent"
-		android:layout_height="fill_parent" android:id="@+id/tokenList" android:layout_margin="10dp" android:background="#66000000" android:visibility="gone">
+    style="?android:attr/progressBarStyleHorizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
-</ListView>
-	<TextView android:text="@string/main_no_items" android:layout_height="wrap_content" android:shadowDy="2" android:shadowDx="2" android:shadowRadius="10" android:textSize="12pt" android:textColor="#ffffff" android:layout_width="wrap_content" android:layout_gravity="center_horizontal" android:id="@+id/noTokensLabel"/><Button android:layout_height="wrap_content" android:layout_width="fill_parent" android:drawableLeft="@drawable/gpg" android:id="@+id/addNewAccount" android:layout_marginLeft="40dp" android:layout_marginRight="40dp" android:text="@string/addNewToken" android:textSize="9pt"></Button>
-	
+    <ProgressBar
+        android:id="@+id/ProgressBar01"
+        style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="7dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:indeterminate="false"
+        android:max="30000"
+        android:progress="15000" >
+    </ProgressBar>
+
+    <ListView
+        android:id="@+id/tokenList"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="10dp"
+        android:background="#66000000"
+        android:visibility="gone" >
+    </ListView>
+
+    <TextView
+        android:id="@+id/noTokensLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="10"
+        android:text="@string/main_no_items"
+        android:textColor="#ffffff"
+        android:textSize="12pt" />
 
 </LinearLayout>
