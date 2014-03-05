@@ -1,9 +1,6 @@
 package com.chrisheald.flexauth;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -151,10 +148,7 @@ public class FlexAuth extends Activity {
 	private void destroyToken(long tokenId) {
 		final Token t = tAdapter.items.get((int)tokenId);
 		if(t._id != -1) {
-			new AlertDialog.Builder(this)	    	
-			.setIcon(R.drawable.shocked)
-			.setTitle(R.string.delete_confirm)
-			.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+			new AlertDialog.Builder(this).setTitle(R.string.delete_confirm).setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int which) {
 					Object[] args = {t._id};
 					db.execSQL("DELETE FROM accounts WHERE id = ?", args);
@@ -216,6 +210,7 @@ public class FlexAuth extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()){
 		case R.id.action_add: newToken(); return true;
+		case R.id.action_refresh: resync(); return true;
 		default: return super.onOptionsItemSelected(item);
 		}
 	}

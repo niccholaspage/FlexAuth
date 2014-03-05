@@ -2,6 +2,7 @@ package com.chrisheald.flexauth;
 
 import android.app.Activity;
 import android.content.ClipData;
+import android.content.ClipData.Item;
 import android.content.ClipboardManager;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -39,7 +40,7 @@ public class TokenView extends Activity {
 		switch (item.getItemId()) {
 		case COPY_ID:
 			ClipboardManager c = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-			c.setPrimaryClip(new ClipData(((TextView) menuInvoker).getText(), null, null));
+			c.setPrimaryClip(new ClipData("Text", new String[]{"text"}, new Item(((TextView) menuInvoker).getText())));
 			Toast.makeText(this, "Text copied to clipboard", Toast.LENGTH_SHORT).show();
 			return true;
 		default:

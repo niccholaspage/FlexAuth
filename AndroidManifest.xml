@@ -7,6 +7,10 @@
     <uses-permission android:name="android.permission.INTERNET" >
     </uses-permission>
 
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/rowicon"
@@ -52,9 +56,5 @@
                 android:resource="@xml/widget" />
         </receiver>
     </application>
-
-    <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="19" />
 
 </manifest>

@@ -34,5 +34,6 @@
     <string name="token_hint">Token Secret</string>
     <string name="icon">Icon</string>
     <string name="action_add_token">Add Token</string>
+    <string name="action_refresh">Refresh</string>
 
 </resources>

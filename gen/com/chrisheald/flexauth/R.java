@@ -14,19 +14,11 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int disk=0x7f020000;
-        public static final int gpg=0x7f020001;
-        public static final int ic_action_new=0x7f020002;
-        public static final int key=0x7f020003;
-        public static final int lock=0x7f020004;
-        public static final int patch=0x7f020005;
-        public static final int pencil_add=0x7f020006;
-        public static final int rowicon=0x7f020007;
-        public static final int shield=0x7f020008;
-        public static final int shocked=0x7f020009;
-        public static final int star=0x7f02000a;
-        public static final int widgetbg=0x7f02000b;
-        public static final int world_link=0x7f02000c;
+        public static final int ic_action_new=0x7f020000;
+        public static final int ic_action_refresh=0x7f020001;
+        public static final int key=0x7f020002;
+        public static final int rowicon=0x7f020003;
+        public static final int widgetbg=0x7f020004;
     }
     public static final class id {
         public static final int Button01=0x7f090013;
@@ -42,6 +34,7 @@ public final class R {
         public static final int accountName=0x7f090005;
         public static final int accountNameText=0x7f090004;
         public static final int action_add=0x7f090022;
+        public static final int action_refresh=0x7f090023;
         public static final int authCode=0x7f090018;
         public static final int bottomtext=0x7f090016;
         public static final int icon=0x7f090014;
@@ -79,6 +72,7 @@ public final class R {
     public static final class string {
         public static final int accountNameText=0x7f060010;
         public static final int action_add_token=0x7f060020;
+        public static final int action_refresh=0x7f060021;
         public static final int addAccountLabel=0x7f06000e;
         public static final int addNewToken=0x7f060006;
         public static final int app_name=0x7f060012;

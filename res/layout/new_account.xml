@@ -65,7 +65,6 @@
                 android:id="@+id/tokenSecret"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:digits="ABCDEFabcdef01234567890"
                 android:hint="@string/token_hint"
                 android:imeOptions="actionDone"
                 android:textSize="8pt" >
@@ -96,7 +95,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:drawableLeft="@drawable/world_link"
                     android:drawablePadding="10dp"
                     android:onClick="generateToken"
                     android:text="@string/generateToken" >
@@ -107,7 +105,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:drawableLeft="@drawable/disk"
                     android:drawablePadding="10dp"
                     android:onClick="saveToken"
                     android:text="@string/save" >
@@ -134,7 +131,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|right"
-                android:drawableLeft="@drawable/world_link"
                 android:onClick="requestNewToken"
                 android:text="@string/requestNewToken" >
             </Button>
@@ -144,7 +140,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|fill_horizontal"
-                android:drawableLeft="@drawable/pencil_add"
                 android:onClick="newManualToken"
                 android:text="@string/manualToken" >
             </Button>

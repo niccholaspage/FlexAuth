@@ -19,7 +19,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#66000044"
-        android:drawableLeft="@drawable/shield"
         android:drawablePadding="10dp"
         android:padding="10dp"
         android:text="@+id/TextView02"
@@ -28,7 +27,7 @@
     </TextView>
 
     <TextView
-        android:id="@+id/TextView01"
+        android:id="@+id/TextView02"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -42,7 +41,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#66000044"
-        android:drawableLeft="@drawable/key"
         android:drawablePadding="10dp"
         android:longClickable="true"
         android:padding="10dp"
@@ -66,7 +64,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#66000044"
-        android:drawableLeft="@drawable/lock"
         android:drawablePadding="10dp"
         android:longClickable="true"
         android:padding="10dp"
