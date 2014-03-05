@@ -8,24 +8,12 @@
     android:clickable="true"
     android:padding="20dp" >
 
-    <ImageView
-        android:id="@+id/ImageView01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/widgetName"
-        android:layout_gravity="center_vertical"
-        android:contentDescription=""
-        android:padding="5dp"
-        android:src="@drawable/key" >
-    </ImageView>
-
     <TextView
         android:id="@+id/widgetCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/ImageView01"
+        android:layout_below="@+id/widgetName"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:layout_toRightOf="@+id/ImageView01"
         android:ellipsize="none"
         android:text="@+id/TextView01"
         android:textColor="#ffcc00"
