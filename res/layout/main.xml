@@ -22,8 +22,6 @@
         android:id="@+id/tokenList"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_margin="10dp"
-        android:background="#66000000"
         android:visibility="gone" >
     </ListView>
 
